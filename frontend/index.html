@@ -3,24 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Platform</title>
+    <title>Social Connect</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Social Media Platform</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Profile</a>
-            <a href="#">Login</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Welcome to the Social Media Platform</h2>
-        <div id="posts-container">
-            <!-- Posts will be dynamically loaded here -->
+    <header class="glass-header">
+        <div class="header-content">
+            <h1 class="logo"><i class="fas fa-hashtag"></i> SocialConnect</h1>
+            <nav id="main-nav" class="hidden">
+                <a href="#" id="nav-feed"><i class="fas fa-home"></i> Feed</a>
+                <a href="#" id="nav-profile"><i class="fas fa-user"></i> Profile</a>
+                <button id="logout-btn" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </nav>
         </div>
+    </header>
+
+    <main class="container">
+        <!-- Auth Section -->
+        <section id="auth-section" class="auth-container glass-panel">
+            <div class="auth-tabs">
+                <button id="tab-login" class="active">Login</button>
+                <button id="tab-register">Register</button>
+            </div>
+            
+            <div id="login-form-container" class="auth-form-wrapper">
+                <h2>Welcome Back</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+
+            <div id="register-form-container" class="auth-form-wrapper hidden">
+                <h2>Create Account</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="register-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+            <p id="auth-error" class="error-msg"></p>
+        </section>
+
+        <!-- Feed Section -->
+        <section id="feed-section" class="feed-container hidden">
+            <div class="create-post glass-panel">
+                <form id="create-post-form">
+                    <textarea id="post-content" placeholder="What's on your mind?" required></textarea>
+                    <div class="post-actions">
+                        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Post</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="posts-container">
+                <!-- Posts will be dynamically loaded here -->
+                <div class="loader hidden" id="posts-loader"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="profile-container glass-panel hidden">
+            <div class="profile-header">
+                <div class="profile-avatar"><i class="fas fa-user"></i></div>
+                <h2 id="profile-username">Username</h2>
+                <p id="profile-email">email@example.com</p>
+                <div class="profile-stats">
+                    <div><strong id="stat-followers">0</strong> Followers</div>
+                    <div><strong id="stat-following">0</strong> Following</div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <script src="js/app.js"></script>
 </body>
 </html>
