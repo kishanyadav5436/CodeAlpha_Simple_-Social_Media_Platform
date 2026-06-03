@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Connect</title>
+    <title>SocialConnect — Social Media Platform</title>
+    <meta name="description" content="Connect with friends, share your thoughts, and discover new people on SocialConnect.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -81,7 +82,7 @@
             </div>
         </section>
 
-        <!-- Profile Section -->
+        <!-- Profile Section (Own Profile) -->
         <section id="profile-section" class="profile-container glass-panel hidden">
             <div class="profile-header">
                 <div class="profile-avatar"><i class="fas fa-user"></i></div>
@@ -94,6 +95,30 @@
             </div>
         </section>
     </main>
+
+    <!-- User Profile Modal (Other Users) -->
+    <div class="modal-overlay hidden" id="user-modal-overlay">
+        <div class="user-modal glass-panel">
+            <button class="modal-close-btn" id="user-modal-close"><i class="fas fa-times"></i></button>
+            <div class="profile-header">
+                <div class="profile-avatar modal-avatar" id="modal-user-avatar"><i class="fas fa-user"></i></div>
+                <h2 id="modal-user-name">Username</h2>
+                <div class="profile-stats">
+                    <div><strong id="modal-stat-followers">0</strong> Followers</div>
+                    <div><strong id="modal-stat-following">0</strong> Following</div>
+                </div>
+                <button id="follow-btn" class="btn-follow">
+                    <i class="fas fa-user-plus"></i> <span>Follow</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Action completed</span>
+    </div>
 
     <script src="js/app.js"></script>
 </body>
